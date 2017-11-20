@@ -95,13 +95,13 @@ class HueSlider {
   /** Builds the hue color gradient object.   The gradient is saved for later reuse */
   void _buildGradient() {
     var hueColors = [
-        new ColorValue.fromRGB(255, 0,   0),
-        new ColorValue.fromRGB(255, 255, 0),
-        new ColorValue.fromRGB(0,   255, 0),
-        new ColorValue.fromRGB(0,   255, 255),
-        new ColorValue.fromRGB(0,   0,   255),
-        new ColorValue.fromRGB(255, 0,   255),
-        new ColorValue.fromRGB(255, 0,   0)
+      new ColorValue.fromRGB(255, 0, 0),
+      new ColorValue.fromRGB(255, 255, 0),
+      new ColorValue.fromRGB(0, 255, 0),
+      new ColorValue.fromRGB(0, 255, 255),
+      new ColorValue.fromRGB(0, 0, 255),
+      new ColorValue.fromRGB(255, 0, 255),
+      new ColorValue.fromRGB(255, 0, 0)
     ];
 
     // Create a hue color gradient object to draw in the canvas
@@ -122,6 +122,7 @@ class HueSlider {
   void onMouseDown(int x, int y) {
     _updateHue(x, y);
   }
+
   void onMouseMoved(int x, int y) {
     _updateHue(x, y);
   }
@@ -140,7 +141,6 @@ class HueSlider {
     _draw();
   }
 }
-
 
 /** Listen to Hue angle change events */
 abstract class HueChangeListener {

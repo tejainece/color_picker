@@ -30,7 +30,6 @@ class EntryControl {
     elementName.classes.add("entry-control-base-name");
     elementValue.classes.add("entry-control-base-value");
 
-
     elementBase.nodes.add(elementName);
     elementBase.nodes.add(elementValue);
 

@@ -94,11 +94,13 @@ class HsvGradientPicker implements HueChangeListener {
     for (var h = 0; h < height; h++) {
       num intensity = (height - 1 - h) / (height - 1);
       int greyScaleComponent = (255 * intensity).toInt();
-      var startColor = new ColorValue.fromRGB(greyScaleComponent, greyScaleComponent, greyScaleComponent);
+      var startColor = new ColorValue.fromRGB(
+          greyScaleComponent, greyScaleComponent, greyScaleComponent);
       var endColor = hueColor * intensity;
       num pixelIntensity = 0;
       for (var w = 0; w < width; w++) {
-        final pixelColor = startColor + (endColor - startColor) * pixelIntensity;
+        final pixelColor =
+            startColor + (endColor - startColor) * pixelIntensity;
         _buffer[index++] = pixelColor.r;
         _buffer[index++] = pixelColor.g;
         _buffer[index++] = pixelColor.b;
@@ -126,9 +128,7 @@ class HsvGradientPicker implements HueChangeListener {
 
       // Get the saturation (S) component
       saturation = (chroma == 0) ? 0 : chroma / value;
-
     }
-
 
     /** Get the pure color from the hue angle */
     hueColor = _getHueColor(hue);
@@ -165,7 +165,6 @@ class HsvGradientPicker implements HueChangeListener {
 
   /** Draws the cursor on the currently selected color position */
   _drawCursor() {
-
     // Find out the luminosity of the selected color to choose an
     // appropriate color for the cursor
     final luma = _getColorLuma(_color);
@@ -176,11 +175,10 @@ class HsvGradientPicker implements HueChangeListener {
     }
     context.strokeStyle = cursorColor;
     context.beginPath();
-    context.arc(_cursorX, _cursorY, cursorRadius, 0 , 2 * PI, false);
+    context.arc(_cursorX, _cursorY, cursorRadius, 0, 2 * PI, false);
     context.closePath();
     context.stroke();
   }
-
 
   // Mouse Event Handlers
   void onMouseDown(int x, int y) {

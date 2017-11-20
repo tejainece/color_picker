@@ -11,6 +11,7 @@ class ColorPicker {
     picker.color = value;
     hueSlider.hueAngle = picker.hue;
   }
+
   ColorValue get currentColor => picker.color;
 
   /** The HSV Color picker gradient */
@@ -24,7 +25,9 @@ class ColorPicker {
 
   /** Notify any observers listening for color change events */
   ColorChangeListener _colorChangeListener;
+
   ColorChangeListener get colorChangeListener => _colorChangeListener;
+
   set colorChangeListener(ColorChangeListener value) {
     _colorChangeListener = value;
     // notify the new listener of the current color
@@ -64,7 +67,8 @@ class ColorPicker {
     element.nodes.add(dummyElement);
   }
 
-  void onColorChanged(ColorValue color, num hue, num saturation, num brightness) {
+  void onColorChanged(
+      ColorValue color, num hue, num saturation, num brightness) {
     infoBox.refresh();
     if (colorChangeListener != null) {
       colorChangeListener(color, hue, saturation, brightness);
@@ -81,6 +85,7 @@ class ColorPickerInfoBox {
   ColorPicker colorPicker;
 
   ColorValue get color => colorPicker.picker.color;
+
   set color(ColorValue value) {
     colorPicker.picker.color = value;
     colorPicker.hueSlider.hueAngle = colorPicker.picker.hue;
@@ -122,7 +127,8 @@ class ColorPickerInfoBox {
       color = _color;
     });
 
-    entryGreen = new EntryControl("G", () => color.g.toString(), (String value) {
+    entryGreen =
+        new EntryControl("G", () => color.g.toString(), (String value) {
       final _color = color;
       _color.g = max(0, min(255, int.parse(value)));
       color = _color;
@@ -135,19 +141,20 @@ class ColorPickerInfoBox {
     });
 
     entryHue = new EntryControl("H", () {
-          num hue = colorPicker.picker.hue;
-          int degrees = (hue * 180 ~/ PI);
-          return degrees.toString();
-        }, (String value) {});
+      num hue = colorPicker.picker.hue;
+      int degrees = (hue * 180 ~/ PI);
+      return degrees.toString();
+    }, (String value) {});
     entryHue.elementBase.style.marginTop = "6px";
 
-    entrySaturation= new EntryControl("S", () {
+    entrySaturation = new EntryControl("S", () {
       num saturation = colorPicker.picker.saturation;
       int saturationInt = (saturation * 255).round().toInt();
       return saturationInt.toString();
     }, (String value) {});
 
-    entryBrightness = new EntryControl("V", () => colorPicker.picker.value.toInt().toString(), (String value) {});
+    entryBrightness = new EntryControl("V",
+        () => colorPicker.picker.value.toInt().toString(), (String value) {});
 
     elementBase = new DivElement();
     elementBase.classes.add("color-picker-info-box");
@@ -160,7 +167,6 @@ class ColorPickerInfoBox {
     elementBase.nodes.add(entryHue.elementBase);
     elementBase.nodes.add(entrySaturation.elementBase);
     elementBase.nodes.add(entryBrightness.elementBase);
-
   }
 
   void refresh() {
@@ -181,5 +187,5 @@ class ColorPickerInfoBox {
   }
 }
 
-typedef void ColorChangeListener(ColorValue color, num hue, num saturation, num brightness);
-
+typedef void ColorChangeListener(
+    ColorValue color, num hue, num saturation, num brightness);

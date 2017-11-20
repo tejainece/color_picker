@@ -19,12 +19,12 @@ num _getHsvValueComponent(ColorValue color) {
  */
 ColorValue _getHueColor(num angle) {
   var slots = [
-      new ColorValue.fromRGB(255, 0,   0),
-      new ColorValue.fromRGB(255, 255, 0),
-      new ColorValue.fromRGB(0,   255, 0),
-      new ColorValue.fromRGB(0,   255, 255),
-      new ColorValue.fromRGB(0,   0,   255),
-      new ColorValue.fromRGB(255, 0,   255)
+    new ColorValue.fromRGB(255, 0, 0),
+    new ColorValue.fromRGB(255, 255, 0),
+    new ColorValue.fromRGB(0, 255, 0),
+    new ColorValue.fromRGB(0, 255, 255),
+    new ColorValue.fromRGB(0, 0, 255),
+    new ColorValue.fromRGB(255, 0, 255)
   ];
 
   // Each slot is 60 degrees.  Find out which slot this angle lies in

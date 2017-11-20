@@ -55,7 +55,6 @@ class _MouseListener {
     }
   }
 
-
   void _handlerDown(MouseEvent e) {
     startMouseEvent = e;
     startMouseX = e.offset.x;
@@ -78,7 +77,6 @@ class _MouseListener {
   }
 
   void _handlerMove(MouseEvent event) {
-
     // Get the cursor bounds clamped to the canvas rectangle
     _cursorX = startMouseX + event.page.x - startMouseEvent.page.x;
     _cursorY = startMouseY + event.page.y - startMouseEvent.page.y;
@@ -104,5 +102,4 @@ class _MouseListener {
     // Restore text selection
     document.body.classes.remove("color-picker-unselectable");
   }
-
 }

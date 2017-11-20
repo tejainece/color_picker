@@ -1,11 +1,11 @@
+@TestOn("browser")
 library color_value_test;
 
 import "package:color_picker/color_picker.dart";
-import "package:unittest/unittest.dart";
+import "package:test/test.dart";
 
 void main() {
   group("Color Value:", () {
-
     test("parse_format_fff_1", () {
       var color = new ColorValue.from("#fff");
       expect(color.r, 0xff);
@@ -74,7 +74,6 @@ void main() {
       expect(color.b, 0xee);
     });
 
-
     test("parse_format_255_1", () {
       var color = new ColorValue.from("10, 123, 54");
       expect(color.r, 10);
@@ -102,9 +101,5 @@ void main() {
       expect(color.g, 0);
       expect(color.b, 0xff);
     });
-
   });
 }
-
-
-

@@ -21,8 +21,7 @@ class ColorValue {
       // Remove the #
       value = value.substring(1);
       _parseHex(value);
-    }
-    else if (value.contains(",")) {
+    } else if (value.contains(",")) {
       List<String> tokens = value.split(",");
       if (tokens.length < 3) {
         throw new Exception("Invalid color value format");
@@ -36,7 +35,10 @@ class ColorValue {
     }
   }
 
-  ColorValue() : r = 0, g = 0, b = 0;
+  ColorValue()
+      : r = 0,
+        g = 0,
+        b = 0;
   ColorValue.fromRGB(this.r, this.g, this.b);
   ColorValue.copy(ColorValue other) {
     this.r = other.r;
@@ -73,31 +75,21 @@ class ColorValue {
     b = int.parse("0x$hexB");
   }
 
-  ColorValue operator* (num value) {
+  ColorValue operator *(num value) {
     return new ColorValue.fromRGB(
-        (r * value).toInt(),
-        (g * value).toInt(),
-        (b * value).toInt());
-  }
-  ColorValue operator+ (ColorValue other) {
-    return new ColorValue.fromRGB(
-        r + other.r,
-        g + other.g,
-        b + other.b);
+        (r * value).toInt(), (g * value).toInt(), (b * value).toInt());
   }
 
-  ColorValue operator- (ColorValue other) {
-    return new ColorValue.fromRGB(
-        r - other.r,
-        g - other.g,
-        b - other.b);
+  ColorValue operator +(ColorValue other) {
+    return new ColorValue.fromRGB(r + other.r, g + other.g, b + other.b);
+  }
+
+  ColorValue operator -(ColorValue other) {
+    return new ColorValue.fromRGB(r - other.r, g - other.g, b - other.b);
   }
 
   String toString() => "rgba($r, $g, $b, 1.0)";
   String toRgbString() => "$r, $g, $b";
 }
 
-
-class HsvColor {
-
-}
+class HsvColor {}

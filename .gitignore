@@ -11,6 +11,7 @@
 *.tmp
 packages
 out/
+.packages
 
 # Compiled source #
 ###################
