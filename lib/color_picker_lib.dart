@@ -142,7 +142,7 @@ class ColorPickerInfoBox {
 
     entryHue = new EntryControl("H", () {
       num hue = colorPicker.picker.hue;
-      int degrees = (hue * 180 ~/ PI);
+      int degrees = (hue * 180 ~/ pi);
       return degrees.toString();
     }, (String value) {});
     entryHue.elementBase.style.marginTop = "6px";

@@ -12,6 +12,8 @@
 packages
 out/
 .packages
+.dart_tool
+.idea
 
 # Compiled source #
 ###################
