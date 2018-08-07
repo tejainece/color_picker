@@ -12,6 +12,7 @@
 packages
 out/
 .packages
+.idea/
 
 # Compiled source #
 ###################

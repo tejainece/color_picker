@@ -121,7 +121,7 @@ class HsvGradientPicker implements HueChangeListener {
       final beta = sqrt(3) / 2 * (_color.g - _color.b);
       hue = atan2(beta, alpha);
       if (hue < 0) {
-        hue += PI * 2;
+        hue += pi * 2;
       }
 
       chroma = sqrt(alpha * alpha + beta * beta);
@@ -175,7 +175,7 @@ class HsvGradientPicker implements HueChangeListener {
     }
     context.strokeStyle = cursorColor;
     context.beginPath();
-    context.arc(_cursorX, _cursorY, cursorRadius, 0, 2 * PI, false);
+    context.arc(_cursorX, _cursorY, cursorRadius, 0, 2 * pi, false);
     context.closePath();
     context.stroke();
   }

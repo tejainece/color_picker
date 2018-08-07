@@ -61,7 +61,7 @@ class HueSlider {
     }
 
     // Draw the cursor at the prefered location
-    final y = canvas.height * _hueAngle / (2 * PI) + 0.5;
+    final y = canvas.height * _hueAngle / (2 * pi) + 0.5;
     context.save();
     context.strokeStyle = cursorColor;
     context.lineWidth = 1;
@@ -130,7 +130,7 @@ class HueSlider {
   void _updateHue(int x, int y) {
     y %= canvas.height;
     num ratio = y / canvas.height;
-    _hueAngle = 2 * PI * ratio;
+    _hueAngle = 2 * pi * ratio;
 
     // Notify the observer
     if (hueChangelistener != null) {

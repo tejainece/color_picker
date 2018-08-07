@@ -29,7 +29,7 @@ ColorValue _getHueColor(num angle) {
 
   // Each slot is 60 degrees.  Find out which slot this angle lies in
   // http://en.wikipedia.org/wiki/Hue
-  int degrees = (angle * 180 / PI).round().toInt();
+  int degrees = (angle * 180 / pi).round().toInt();
   degrees %= 360;
   final slotPosition = degrees / 60;
   final slotIndex = slotPosition.toInt();
